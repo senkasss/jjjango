@@ -7,7 +7,13 @@ class Advertisement(models.Model):
     auction = models.BooleanField("Торг", help_text = "Если торг уместен, поставье 1. Если нет - 0.")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now = True)
+    class Meta:
+        db_table = "advertisements"
 
+
+    def __str__(self):
+
+        return f'(title = {self.title}, description = {self.description}, price = {self.price}, auction = {self.auction}, created_at = {self.created_at}, updated_at = {self.updated_at})'
 
     def created_date(self):
         from django.utils import timezone

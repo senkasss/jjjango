@@ -7,6 +7,8 @@ class AdvertisementsAdmin(admin.ModelAdmin):
     list_filter = ['auction', 'created_at']
     actions =['maaf', 'maat']
 
+
+
     @admin.action(description='Убрать возможность торга')
     def maaf(self,request, queryset):
         queryset.update(auction = False)
